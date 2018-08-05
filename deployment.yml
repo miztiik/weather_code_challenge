@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: weatherapp
+  labels:
+    app: weatherapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatherapp
+  template:
+    metadata:
+      labels:
+        app: weatherapp
+    spec:
+      containers:
+        - name: app
+          image: weatherApp:v01
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+          envFrom:
+          - configMapRef:
+              name: env-configmap

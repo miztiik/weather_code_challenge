@@ -1,0 +1,8 @@
+# Use config map for not-secret configuration data
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: env-configmap
+data:
+  DARK_SKY_KEY=: <API_TOKEN>
